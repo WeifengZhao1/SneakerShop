@@ -35,3 +35,8 @@ app.get('/',(req,res) => {
     res.json({msg: "Welcome to my website"})
 })
 
+// Routes
+// http://localhost:5001/user/register
+app.use('/user', require('./routes/userRouter'))
+
+
