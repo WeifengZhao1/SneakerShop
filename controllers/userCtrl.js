@@ -26,21 +26,28 @@ const userCtrl = {
         const accesstoken = createAccessToken({id: newUser._id})
         const refreshtoken = createRefreshToken({id: newUser._id})
 
+        res.cookie('refreshtoken', refreshtoken, {
+            httpOnly: true,
+            path: '/user/refresh_token'
+        })
+
         res.json({accesstoken})
 
        } catch(err){
            return res.status(500).json({msg: err.message})
        }
+    },
+    refreshToken: (req, res) =>{
+        const rf_token = req.cookies.refreshtoken;
     }
+    
 }
 
-const createAccessToken = (user) => {
-    return jwt.sign(user,process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
+const createAccessToken = (user) =>{
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '11m'})
 }
-
-const createRefreshToken = (user) => {
-    return jwt.sign(user,process.env.REFRESH_TOKEN_SECRET, {expiresIn: '7d'})
+const createRefreshToken = (user) =>{
+    return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '7d'})
 }
-
 
 module.exports = userCtrl
