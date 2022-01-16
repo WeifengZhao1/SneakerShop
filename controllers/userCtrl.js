@@ -90,11 +90,22 @@ const userCtrl = {
         }
 
 
+    },
+    getUser: async (req, res) =>{
+        try {
+            const user = await Users.findById(req.user.id).select('-password')
+            if (!user)  return res.status(400).json({msg: "User does not exist"})
+
+            res.json(user)
+        }
+        catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
     }
 }
 
 const createAccessToken = (user) =>{
-    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '11m'})
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
 }
 const createRefreshToken = (user) =>{
     return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '7d'})
