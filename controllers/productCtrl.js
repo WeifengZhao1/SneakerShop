@@ -8,7 +8,7 @@ class APIfeatures {
     }
     filtering(){
         const queryObj = {...this.queryString} // queryString = req.body
-        
+
         const excludeFields = ['page','sort','limit']
         excludeFields.forEach(el => delete (queryObj[el]))
         
@@ -25,7 +25,18 @@ class APIfeatures {
         return this;
     }
 
-    sorting(){}
+    sorting(){
+        if (this.queryString.sort){
+            const sortBy = this.queryString.sort.split(',').join(' ')
+            //console.log(sortBy)
+            this.query = this.query.sort(sortBy)
+        }
+        else{
+            this.query = this.query.sort('-createdAt')
+        }
+        
+        return this;
+    }
 
     paginating(){}
 }
@@ -35,7 +46,7 @@ const productCtrl = {
     getProducts: async (req,res) => {
         try {
             console.log(req.query)
-            const features = new APIfeatures(Products.find(),req.query).filtering()
+            const features = new APIfeatures(Products.find(),req.query).filtering().sorting()
             const products = await features.query
 
             //const products = await Products.find()
