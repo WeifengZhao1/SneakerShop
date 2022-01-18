@@ -11,8 +11,8 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET
 })
 
-//Upload Image Test
-router.post('/upload',(req,res) => {
+// Upload Image
+router.post('/upload',auth,authAdmin,(req,res) => {
     try {
         console.log(req.files)
         if (!req.files || Object.keys(req.files).length === 0) 
@@ -44,6 +44,24 @@ router.post('/upload',(req,res) => {
     } catch (err) {
         return res.status(500).json({msg: err.message})
     }
+})
+
+// Delete Image
+router.post('/delete',auth,authAdmin,(req,res) => {
+    try {
+        const {public_id} = req.body;
+        if (!public_id) return res.status(400).json({msg: 'No images selected'})
+
+        cloudinary.v2.uploader.destroy(public_id,async(err,result) => {
+            if (err) throw err;
+
+            res.json({msg: 'Image deleted'})
+        })
+
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+
 })
 
 const removeTmp = (path) => {
