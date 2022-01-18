@@ -19,6 +19,7 @@ app.use(fileUpload({
 // http://localhost:5001/user/register
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/categoryRouter'))
+app.use('/api', require('./routes/upload'))
 
 
 const PORT = process.env.PORT || 5001
