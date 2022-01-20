@@ -4,6 +4,8 @@ import Products from '../products/Products';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import Cart from './cart/Cart';
+import NotFound from './utils/not_found/NotFound';
+
 
 function Page() {
     return (
@@ -13,6 +15,8 @@ function Page() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/cart" element={<Cart />} />
+
+                    <Route path="/*" element={<NotFound />} />
                 </Routes>
         </div>
     )
