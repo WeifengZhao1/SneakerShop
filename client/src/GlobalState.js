@@ -22,7 +22,7 @@ export const DataProvider = ({children}) => {
     const state = {
         token: [token,setToken],
         productsAPI: ProductsAPI()
-    }
+    } 
 
     return (
         <GlobalState.Provider value = {state}>

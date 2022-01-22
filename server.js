@@ -14,7 +14,7 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
-
+ 
 // Routes
 // http://localhost:5001/user/register
 app.use('/user', require('./routes/userRouter'))
@@ -48,3 +48,4 @@ app.get('/',(req,res) => {
 
 
 
+ 
