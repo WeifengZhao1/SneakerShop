@@ -10,10 +10,10 @@ function ProductItem({ product }) {
     //     <h2 title={product.title}>{product.title}</h2> 
     //     <span>${product.price}</span> 
     //     <p>{product.description}</p>
-    //   </div>
-    // </div> 
+    //   </div> 
+    // </div>  
     <div>Product items</div>
-  ) 
+  )  
 }
 
 export default ProductItem;
