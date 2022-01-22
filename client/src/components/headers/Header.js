@@ -1,24 +1,23 @@
 import React, { useState, useContext } from 'react'
-import { GlobalState, GloboalState } from '../../GlobalState'
+import { GlobalState } from '../../GlobalState'
 import Menu from './icon/menu.svg'
 import Cart from './icon/cart.svg'
 import Exit from './icon/exit.svg'
 import {Link} from 'react-router-dom'
 
 function Header() {
-    const value = useContext(GloboalState)
+    const value = useContext(GlobalState)
 
     return (
         <div>
             <header>
-
                 <div className="menu">
                     <img src={Menu} alt="" width="30" />
                 </div>
 
                 <div className="logo">
                     <h1>
-                        <Link to="/"> SneakerShop </Link>
+                        <Link to="/"> Sneaker Shop </Link>
                     </h1>
                 </div>
 
