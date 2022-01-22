@@ -14,7 +14,7 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
-
+ 
 // Routes
 // http://localhost:5001/user/register
 app.use('/user', require('./routes/userRouter'))
@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5001
 app.listen(PORT, () =>{
     console.log('Server is running on port', PORT)
 })
-
+ 
 // Connect to mongoDB
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI
@@ -48,3 +48,4 @@ app.get('/',(req,res) => {
 
 
 
+ 

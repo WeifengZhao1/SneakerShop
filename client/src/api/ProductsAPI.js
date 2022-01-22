@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function ProductsAPI() {
@@ -6,9 +6,16 @@ function ProductsAPI() {
     
     const getProducts = async () => {
         const res = await axios.get('/api/products')
+        setProducts(res.data.products)
     }
 
-  return <div></div>;
+    useEffect(() => {
+        getProducts()
+    },[])
+
+  return {
+      products: [products,setProducts]
+  }
 }
 
 export default ProductsAPI;
