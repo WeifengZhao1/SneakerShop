@@ -1,15 +1,15 @@
 import React, {createContext,useState} from 'react'
 import ProductsAPI from './api/ProductsAPI'
 
-// import process from 'process';
+import process from 'process';
 
-// var Promise = require('es6-promise').Promise;
+var Promise = require('es6-promise').Promise;
 
 
-// process.on('unhandledRejection', (reason, promise) => {
-//     console.log('Unhandled Rejection at:', promise, 'reason:', reason);
-//     // Application specific logging, throwing an error, or other logic here
-//   });
+process.on('unhandledRejection', (reason, promise) => {
+    console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+    // Application specific logging, throwing an error, or other logic here
+  });
   
  
 

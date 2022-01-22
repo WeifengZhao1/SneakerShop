@@ -12,7 +12,17 @@ function ProductItem({ product }) {
     //     <p>{product.description}</p>
     //   </div> 
     // </div>  
-    <div>Product items</div>
+    <div className="product_card">
+        <img src = {product.img} alt="" />
+
+        <div className="product_box">
+          <h2 title = {product.title}>{product.title}</h2>
+          <span>${product.price}</span>
+          <p>{product.description}</p>
+
+        </div>
+    
+      </div>
   )  
 }
 
