@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useContext, useState, useEffect }from 'react'
+import {useParams, Link} from 'react-router-dom'
+import {GlobalState} from '../../../GlobalState'
+
 
 function DetailProduct() {
-  return 
-  <div>
-      Product Details
-  </div>;
+   const params = useParams()
+   console.log(params)
+
+   return (
+       <div>
+           Product Details
+       </div>
+   )
 }
 
 export default DetailProduct;
