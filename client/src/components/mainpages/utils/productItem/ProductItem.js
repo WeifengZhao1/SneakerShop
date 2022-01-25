@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import BtnRender from './BtnRender';
 
 function ProductItem({ product }) {
   return (
@@ -14,9 +15,8 @@ function ProductItem({ product }) {
 
       <div className="row_btn">
         <Link id="btn_buy" to="#!">Buy</Link>
-        <Link id="btn_view" to={`detail/${product._id}`}>View</Link>
+        <Link id="btn_view" to={`/detail/${product._id}`}>View</Link>
       </div>
-
     </div>
   )
 }
