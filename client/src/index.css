@@ -45,3 +45,6 @@ button{
 
 /* ------- Product Details -------- */
 @import url("./components/mainpages/detailProduct/DetailProduct.css");
+
+/* ------- Login/Register -------- */
+@import url('./components/mainpages/auth/Login.css');
