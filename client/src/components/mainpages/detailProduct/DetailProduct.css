@@ -8,18 +8,18 @@
 }
 
 .detail img {
-    max-width: 800px;
+    max-width: 650px;
     width: 100%;
     margin: 20px;
-    height: 600px;
+    height: 350px;
     object-fit: contain;
     display: block;   
 }
 
 .box-detail{
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
-    margin: 30px;
+    margin: 10px;
     /* margin-left: -100px; */
 }
 .box-detail .row {
