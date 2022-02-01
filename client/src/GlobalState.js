@@ -1,7 +1,7 @@
-import React, {createContext,useState} from 'react'
+import React, {createContext,useState, useEffect} from 'react'
 import ProductsAPI from './api/ProductsAPI'
+import UserAPI from './api/UserAPI'
 import axios from 'axios'
-import { useEffect } from 'react/cjs/react.development'
 
 
 export const GlobalState = createContext()
@@ -23,7 +23,8 @@ export const DataProvider = ({children}) => {
     // ProductsAPI()
     const state = {
         token: [token,setToken],
-        productsAPI: ProductsAPI()
+        productsAPI: ProductsAPI(),
+        userAPI: UserAPI(token)
     } 
 
     return (
